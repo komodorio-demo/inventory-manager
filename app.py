@@ -18,9 +18,12 @@ def initialize_connections():
     logging.info("starting service intialization")
     fetch_configuration()
     
+def verify_connection(con):
+    raise Exception("VerificationError - insecure connection, can't validate TLS")
 
 def fetch_configuration():
     conn = create_connection()
+    verify_connection(conn)
     return conn
 
 def create_connection():
